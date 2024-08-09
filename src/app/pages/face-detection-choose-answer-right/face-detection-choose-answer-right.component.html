@@ -1,0 +1,33 @@
+<div id="wrapper">
+    <div id="main">
+        <div class="camera" id="camera">
+            <div id="mask" *ngIf="isShowMask">
+                <img src="../../../assets/imgs/camera.png" alt="" class="icon-camera" id="icon-camera" (click)="startGame()" />
+            </div>
+            <div id="questions">
+                <p id="question">{{ question.question }}</p>
+                <div id="answers">
+                    <div class="answer selected"><span>A. Sói</span></div>
+                    <div class="answer"><span>B. Sư Tử</span></div>
+                    <div class="answer"><span>C. Vợ</span></div>
+                </div>
+            </div>
+            <canvas [height]="videoHeight" [width]="videoWidth" #canvas id="canvas-detection"></canvas>
+            <div id="webcam"></div>
+        </div>
+        <div id="button-capture">
+            <div class="wrap-capture-body"></div>
+            <div class="capture-body"></div>
+        </div>
+    </div>
+</div>
+
+<div class="popup-container">
+    <div class="popup">
+        <h2>Chúc mừng!</h2>
+        <p class="description-congrats">
+            {{ message }}
+        </p>
+        <button class="popup-close" (click)="playAgain()">Chơi lại</button>
+    </div>
+</div>

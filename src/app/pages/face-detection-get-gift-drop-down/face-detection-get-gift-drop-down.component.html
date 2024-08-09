@@ -1,0 +1,49 @@
+<div id="wrapper">
+  <div id="main">
+    <div class="camera" id="camera">
+      <div id="mask" *ngIf="isShowMask">
+        <img
+          src="../../../assets/imgs/camera.png"
+          alt=""
+          class="icon-camera"
+          id="icon-camera"
+          (click)="startGame()"
+        />
+      </div>
+      <canvas
+        [height]="videoHeight"
+        [width]="videoWidth"
+        #canvas
+        id="canvas-detection"
+      ></canvas>
+      <div id="webcam"></div>
+      <img src="../../../assets/imgs/open-box.png" alt="" id="box-gift" />
+      <img
+        *ngFor="let item of gifts"
+        [src]="item.url"
+        alt=""
+        class="item-gift"
+        [ngStyle]="{ left: item.left + '%' }"
+        [class]="item.id"
+        [id]="item.id"
+      />
+    </div>
+    <div id="bar-points">
+      <div id="bar"></div>
+    </div>
+    <div id="button-capture">
+      <div class="wrap-capture-body"></div>
+      <div class="capture-body"></div>
+    </div>
+  </div>
+</div>
+
+<div class="popup-container">
+  <div class="popup">
+    <h2>Chúc mừng!</h2>
+    <p class="description-congrats">
+      Bạn đã hoàn thành trò chơi với {{ points }} điểm <!DOCTYPE html>
+    </p>
+    <button class="popup-close" (click)="playAgain()">Nhận thưởng</button>
+  </div>
+</div>
